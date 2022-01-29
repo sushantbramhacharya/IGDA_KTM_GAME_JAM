@@ -1,3 +1,6 @@
 *.import
 *.md5
 *.stex
+Credits.gd
+Credits.tscn
+BGM.ogg

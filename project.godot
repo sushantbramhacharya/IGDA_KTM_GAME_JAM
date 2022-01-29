@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Task Of Duality"
-run/main_scene="res://Main .tscn"
+run/main_scene="res://Main_Menu.tscn"
 config/icon="res://icon.png"
 
 [display]
