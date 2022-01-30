@@ -1,6 +1,5 @@
 [gd_scene load_steps=54 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://level2.png" type="Texture" id=3]
 [ext_resource path="res://Flower3.png" type="Texture" id=4]
@@ -12,6 +11,7 @@
 [ext_resource path="res://evil 2.png" type="Texture" id=10]
 [ext_resource path="res://Flower2.png" type="Texture" id=11]
 [ext_resource path="res://BGM.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Obstacle_Script.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3196.15, 10 )
@@ -28,8 +28,9 @@ extents = Vector2( 1095.24, 10 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 1389.63, 10 )
 
-[sub_resource type="CircleShape2D" id=6]
-radius = 960.453
+[sub_resource type="StreamTexture" id=39]
+flags = 4
+load_path = "res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex"
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 2.65573, 2.27866 )
@@ -577,7 +578,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="SpriteFrames" id=40]
+[sub_resource type="SpriteFrames" id=29]
 animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 4 ) ],
 "loop": true,
@@ -585,58 +586,68 @@ animations = [ {
 "speed": 1.5
 } ]
 
-[sub_resource type="CircleShape2D" id=41]
+[sub_resource type="CircleShape2D" id=30]
 radius = 0.710744
 
-[sub_resource type="RectangleShape2D" id=29]
+[sub_resource type="RectangleShape2D" id=31]
 extents = Vector2( 26.9137, 17.1233 )
-
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 32, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 5 )
-region = Rect2( 64, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=32]
 atlas = ExtResource( 5 )
-region = Rect2( 32, 64, 32, 32 )
+region = Rect2( 0, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=33]
 atlas = ExtResource( 5 )
-region = Rect2( 32, 32, 32, 32 )
+region = Rect2( 64, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=34]
 atlas = ExtResource( 5 )
-region = Rect2( 0, 64, 32, 32 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=35]
 atlas = ExtResource( 5 )
-region = Rect2( 64, 64, 32, 32 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=36]
 atlas = ExtResource( 5 )
-region = Rect2( 32, 0, 32, 32 )
+region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=37]
 atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 32, 32 )
+region = Rect2( 0, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=38]
 atlas = ExtResource( 5 )
-region = Rect2( 64, 0, 32, 32 )
+region = Rect2( 64, 32, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=39]
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 5 )
+region = Rect2( 32, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 5 )
+region = Rect2( 32, 32, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=41]
 animations = [ {
-"frames": [ SubResource( 30 ), SubResource( 31 ) ],
+"frames": [ SubResource( 32 ), SubResource( 33 ) ],
 "loop": true,
-"name": "Right_walk",
+"name": "Up_walk",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 32 ) ],
+"frames": [ SubResource( 34 ) ],
 "loop": true,
-"name": "Idle_up",
+"name": "Idle_down",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 35 ), SubResource( 36 ) ],
+"loop": true,
+"name": "Down_walk",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 37 ), SubResource( 38 ) ],
+"loop": true,
+"name": "Right_walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
@@ -644,24 +655,14 @@ animations = [ {
 "name": "Evil",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 33 ) ],
+"frames": [ SubResource( 42 ) ],
+"loop": true,
+"name": "Idle_up",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 40 ) ],
 "loop": true,
 "name": "Idle_right",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 34 ), SubResource( 35 ) ],
-"loop": true,
-"name": "Up_walk",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 36 ) ],
-"loop": true,
-"name": "Idle_down",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 37 ), SubResource( 38 ) ],
-"loop": true,
-"name": "Down_walk",
 "speed": 5.0
 } ]
 
@@ -725,13 +726,9 @@ rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Barrier"]
-position = Vector2( 2420.73, 516.002 )
+position = Vector2( 2420.9, 521.842 )
 rotation = 1.5708
 shape = SubResource( 5 )
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Barrier"]
-position = Vector2( 1643.22, 350.18 )
-shape = SubResource( 6 )
 
 [node name="Seeds" type="Node" parent="."]
 
@@ -746,7 +743,7 @@ __meta__ = {
 visible = false
 position = Vector2( -0.00640869, -0.0022583 )
 scale = Vector2( 0.035903, 0.0499169 )
-texture = ExtResource( 1 )
+texture = SubResource( 39 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Seeds/Seeds"]
 shape = SubResource( 7 )
@@ -973,22 +970,68 @@ shape = SubResource( 7 )
 
 [node name="Obstacles" type="Node" parent="."]
 
-[node name="Obs1" type="StaticBody2D" parent="Obstacles"]
-position = Vector2( 182.844, 1476.41 )
+[node name="Obs1" type="KinematicBody2D" parent="Obstacles"]
+position = Vector2( 140.033, 1504.95 )
 scale = Vector2( 3, 3 )
+script = ExtResource( 13 )
 __meta__ = {
 "_edit_group_": true
 }
+X = 250
+speed = 5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacles/Obs1"]
 scale = Vector2( 10, 10 )
-frames = SubResource( 40 )
+frames = SubResource( 29 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obs1"]
 position = Vector2( 5.54964, 27.5611 )
 scale = Vector2( 10, 10 )
-shape = SubResource( 41 )
+shape = SubResource( 30 )
+
+[node name="Obs4" type="KinematicBody2D" parent="Obstacles"]
+position = Vector2( 1196.05, 429.908 )
+scale = Vector2( 3, 3 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+Y = 250
+speed = 5
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacles/Obs4"]
+scale = Vector2( 10, 10 )
+frames = SubResource( 29 )
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obs4"]
+position = Vector2( 5.54964, 27.5611 )
+scale = Vector2( 10, 10 )
+shape = SubResource( 30 )
+
+[node name="Obs6" type="KinematicBody2D" parent="Obstacles"]
+position = Vector2( 2950.54, 1265.25 )
+scale = Vector2( 3, 3 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+X = 1
+X_neg = 250
+speed = 5
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacles/Obs6"]
+scale = Vector2( 10, 10 )
+frames = SubResource( 29 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obs6"]
+position = Vector2( 5.54964, 27.5611 )
+scale = Vector2( 10, 10 )
+shape = SubResource( 30 )
 
 [node name="Obs3" type="StaticBody2D" parent="Obstacles"]
 position = Vector2( 219.135, 168.278 )
@@ -999,32 +1042,13 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacles/Obs3"]
 scale = Vector2( 10, 10 )
-frames = SubResource( 40 )
-frame = 1
+frames = SubResource( 29 )
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obs3"]
 position = Vector2( 5.54964, 27.7482 )
 scale = Vector2( 10, 10 )
-shape = SubResource( 41 )
-
-[node name="Obs4" type="StaticBody2D" parent="Obstacles"]
-position = Vector2( 1359.42, 349.693 )
-scale = Vector2( 3, 3 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacles/Obs4"]
-scale = Vector2( 10, 10 )
-frames = SubResource( 40 )
-frame = 1
-playing = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obs4"]
-position = Vector2( 5.54964, 27.7482 )
-scale = Vector2( 10, 10 )
-shape = SubResource( 41 )
+shape = SubResource( 30 )
 
 [node name="Obs5" type="StaticBody2D" parent="Obstacles"]
 position = Vector2( 2545.09, 160.326 )
@@ -1035,48 +1059,30 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacles/Obs5"]
 scale = Vector2( 10, 10 )
-frames = SubResource( 40 )
-frame = 1
+frames = SubResource( 29 )
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obs5"]
 position = Vector2( 5.54964, 27.7482 )
 scale = Vector2( 10, 10 )
-shape = SubResource( 41 )
+shape = SubResource( 30 )
 
-[node name="Obs2" type="StaticBody2D" parent="Obstacles"]
-position = Vector2( 2808.81, 1138.46 )
-scale = Vector2( 3, 3 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacles/Obs2"]
-scale = Vector2( 10, 10 )
-frames = SubResource( 40 )
-playing = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obs2"]
-position = Vector2( 5.54964, 27.7482 )
-scale = Vector2( 10, 10 )
-shape = SubResource( 41 )
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
-pitch_scale = 2.0
+volume_db = -20.0
 autoplay = true
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 293.249, 2073.95 )
 scale = Vector2( 3, 3 )
 script = ExtResource( 2 )
-speed = 500
-time = 35
-time_evil = 33
+speed = 750
+time = 27
+time_evil = 26
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( -0.943871, 31.7769 )
-shape = SubResource( 29 )
+shape = SubResource( 31 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -1130,7 +1136,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 scale = Vector2( 3, 3 )
-frames = SubResource( 39 )
+frames = SubResource( 41 )
 animation = "Idle_down"
 playing = true
 

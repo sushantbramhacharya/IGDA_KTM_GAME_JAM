@@ -55,7 +55,7 @@ func _process(delta):
 	timer_manager("timer_color")
 	_seed_manager()
 	if plant == 10:
-		if $"Main Timer".wait_time==300:
+		if $"Main Timer".wait_time==250:
 			get_tree().change_scene("res://Next Level.tscn")
 		else :
 			get_tree().change_scene("res://You win.tscn")
@@ -137,5 +137,5 @@ func plant_manager(cmd):
 
 
 func _on_Main_Timer_timeout():
-	get_tree().change_scene("res://Game Over.gd") 
+	get_tree().change_scene("res://Game Over.tscn") 
 	pass # Replace with function body.
