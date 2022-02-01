@@ -56,9 +56,9 @@ func _process(delta):
 	_seed_manager()
 	if plant == 10:
 		if $"Main Timer".wait_time==250:
-			get_tree().change_scene("res://Next Level.tscn")
+			get_tree().change_scene("res://scene/Next Level.tscn")
 		else :
-			get_tree().change_scene("res://You win.tscn")
+			get_tree().change_scene("res://scene/You win.tscn")
 
 func _physics_process(delta):
 	get_input()
@@ -137,5 +137,5 @@ func plant_manager(cmd):
 
 
 func _on_Main_Timer_timeout():
-	get_tree().change_scene("res://Game Over.tscn") 
+	get_tree().change_scene("res://scene/Game Over.tscn") 
 	pass # Replace with function body.

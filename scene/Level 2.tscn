@@ -1,17 +1,17 @@
 [gd_scene load_steps=54 format=2]
 
-[ext_resource path="res://Player.gd" type="Script" id=2]
-[ext_resource path="res://level2.png" type="Texture" id=3]
-[ext_resource path="res://Flower3.png" type="Texture" id=4]
-[ext_resource path="res://player.png" type="Texture" id=5]
-[ext_resource path="res://Plant.gd" type="Script" id=6]
-[ext_resource path="res://GreenBG.png" type="Texture" id=7]
-[ext_resource path="res://Game font.tres" type="DynamicFont" id=8]
-[ext_resource path="res://Evil1.png" type="Texture" id=9]
-[ext_resource path="res://evil 2.png" type="Texture" id=10]
-[ext_resource path="res://Flower2.png" type="Texture" id=11]
-[ext_resource path="res://BGM.ogg" type="AudioStream" id=12]
-[ext_resource path="res://Obstacle_Script.gd" type="Script" id=13]
+[ext_resource path="res://script/Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/level2.png" type="Texture" id=3]
+[ext_resource path="res://assets/Flower3.png" type="Texture" id=4]
+[ext_resource path="res://assets/player.png" type="Texture" id=5]
+[ext_resource path="res://script/Plant.gd" type="Script" id=6]
+[ext_resource path="res://assets/GreenBG.png" type="Texture" id=7]
+[ext_resource path="res://font/Game font.tres" type="DynamicFont" id=8]
+[ext_resource path="res://assets/Evil1.png" type="Texture" id=9]
+[ext_resource path="res://assets/evil 2.png" type="Texture" id=10]
+[ext_resource path="res://assets/Flower2.png" type="Texture" id=11]
+[ext_resource path="res://sfx/BGM.ogg" type="AudioStream" id=12]
+[ext_resource path="res://script/Obstacle_Script.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3196.15, 10 )
@@ -28,8 +28,7 @@ extents = Vector2( 1095.24, 10 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 1389.63, 10 )
 
-[sub_resource type="StreamTexture" id=39]
-flags = 4
+[sub_resource type="StreamTexture" id=6]
 load_path = "res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex"
 
 [sub_resource type="RectangleShape2D" id=7]
@@ -602,31 +601,31 @@ region = Rect2( 64, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=34]
 atlas = ExtResource( 5 )
-region = Rect2( 32, 0, 32, 32 )
+region = Rect2( 32, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=35]
 atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 32, 32 )
+region = Rect2( 0, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=36]
 atlas = ExtResource( 5 )
-region = Rect2( 64, 0, 32, 32 )
+region = Rect2( 64, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=37]
 atlas = ExtResource( 5 )
-region = Rect2( 0, 32, 32, 32 )
+region = Rect2( 32, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=38]
 atlas = ExtResource( 5 )
-region = Rect2( 64, 32, 32, 32 )
+region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=42]
+[sub_resource type="AtlasTexture" id=39]
 atlas = ExtResource( 5 )
-region = Rect2( 32, 64, 32, 32 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=40]
 atlas = ExtResource( 5 )
-region = Rect2( 32, 32, 32, 32 )
+region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=41]
 animations = [ {
@@ -637,17 +636,17 @@ animations = [ {
 }, {
 "frames": [ SubResource( 34 ) ],
 "loop": true,
-"name": "Idle_down",
+"name": "Idle_right",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 35 ), SubResource( 36 ) ],
 "loop": true,
-"name": "Down_walk",
+"name": "Right_walk",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 37 ), SubResource( 38 ) ],
+"frames": [ SubResource( 37 ) ],
 "loop": true,
-"name": "Right_walk",
+"name": "Idle_up",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
@@ -655,14 +654,14 @@ animations = [ {
 "name": "Evil",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 42 ) ],
+"frames": [ SubResource( 38 ) ],
 "loop": true,
-"name": "Idle_up",
+"name": "Idle_down",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 40 ) ],
+"frames": [ SubResource( 39 ), SubResource( 40 ) ],
 "loop": true,
-"name": "Idle_right",
+"name": "Down_walk",
 "speed": 5.0
 } ]
 
@@ -743,7 +742,7 @@ __meta__ = {
 visible = false
 position = Vector2( -0.00640869, -0.0022583 )
 scale = Vector2( 0.035903, 0.0499169 )
-texture = SubResource( 39 )
+texture = SubResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Seeds/Seeds"]
 shape = SubResource( 7 )
@@ -983,7 +982,6 @@ speed = 5
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacles/Obs1"]
 scale = Vector2( 10, 10 )
 frames = SubResource( 29 )
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obs1"]
@@ -1004,7 +1002,6 @@ speed = 5
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacles/Obs4"]
 scale = Vector2( 10, 10 )
 frames = SubResource( 29 )
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obs4"]
@@ -1026,6 +1023,7 @@ speed = 5
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacles/Obs6"]
 scale = Vector2( 10, 10 )
 frames = SubResource( 29 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obs6"]
@@ -1043,6 +1041,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacles/Obs3"]
 scale = Vector2( 10, 10 )
 frames = SubResource( 29 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obs3"]
@@ -1060,6 +1059,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacles/Obs5"]
 scale = Vector2( 10, 10 )
 frames = SubResource( 29 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obs5"]

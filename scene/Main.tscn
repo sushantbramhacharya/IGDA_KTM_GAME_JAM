@@ -1,17 +1,23 @@
 [gd_scene load_steps=52 format=2]
 
-[ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://Plant.gd" type="Script" id=2]
-[ext_resource path="res://Game font.tres" type="DynamicFont" id=3]
-[ext_resource path="res://player.png" type="Texture" id=4]
-[ext_resource path="res://GreenBG.png" type="Texture" id=5]
-[ext_resource path="res://Flower3.png" type="Texture" id=6]
-[ext_resource path="res://Flower2.png" type="Texture" id=8]
+[ext_resource path="res://script/Player.gd" type="Script" id=1]
+[ext_resource path="res://script/Plant.gd" type="Script" id=2]
+[ext_resource path="res://font/Game font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/player.png" type="Texture" id=4]
+[ext_resource path="res://assets/GreenBG.png" type="Texture" id=5]
+[ext_resource path="res://assets/Flower3.png" type="Texture" id=6]
+[ext_resource path="res://assets/Flower2.png" type="Texture" id=8]
 [ext_resource path="res://bg.png" type="Texture" id=9]
-[ext_resource path="res://Evil1.png" type="Texture" id=10]
-[ext_resource path="res://BGM.ogg" type="AudioStream" id=11]
-[ext_resource path="res://evil 2.png" type="Texture" id=12]
-[ext_resource path="res://Obstacle_Script.gd" type="Script" id=13]
+[ext_resource path="res://assets/Evil1.png" type="Texture" id=10]
+[ext_resource path="res://sfx/BGM.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/evil 2.png" type="Texture" id=12]
+[ext_resource path="res://script/Obstacle_Script.gd" type="Script" id=13]
+
+
+
+
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3196.15, 10 )
